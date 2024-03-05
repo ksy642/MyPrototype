@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UIManager : DontDestroySingleton<UIManager>
 {
@@ -43,6 +42,6 @@ public class UIManager : DontDestroySingleton<UIManager>
     public void OnToLobby()
     {
         // 세이브 로드 설정해야함 !!
-        SceneManager.LoadScene("1_Lobby");
+        SceneManager.instance.LoadScene("1_Lobby");
     }
 }
