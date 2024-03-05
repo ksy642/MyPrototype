@@ -8,6 +8,6 @@ public class Preload : MonoBehaviour
 
     void Start()
     {
-        SceneManager.instance.LoadScene("1_Lobby");
+        SceneManager.instance.LoadScene("1_Login");
     }
 }
