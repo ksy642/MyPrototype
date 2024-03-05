@@ -4,22 +4,44 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class UILogin : MonoBehaviour
 {
+    // 매인게임
     public GameObject panel_MainGame;
 
-    void Start()
-    {
+    // 매인게임2
+    public GameObject[] menuButtons;
 
-    }
-
+    // 택1
     // Main Game
     public void MainGame()
     {
         panel_MainGame.gameObject.SetActive(true);
     }
+    // Main Game2
+    private bool _openMenu = false;
+    public void MainGame2()
+    {
+        _openMenu = !_openMenu;
+        if (_openMenu)
+        {
+            foreach (var menuButtons in menuButtons)
+            {
+                menuButtons.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (var menuButtons in menuButtons)
+            {
+                menuButtons.gameObject.SetActive(false);
+            }
+        }
+    }
+
 
     // How to Play
     public void HowtoPlay()
@@ -45,14 +67,14 @@ public class UILogin : MonoBehaviour
         Application.Quit();
     }
 
-
-    #region Main Game Button
     // Main Game Button Back
     public void Panel_MainGameBack()
     {
         panel_MainGame.gameObject.SetActive(false);
     }
 
+
+    #region Main Game Button
     // Main Game Button Multi
     public void Panel_MainGameMulti()
     {
