@@ -2,7 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class DreamManager : DontDestroySingleton<DreamManager>
+public class DreamManager : Singleton<DreamManager>
 {
     public bool dreaming = false; // 꿈 관련된 중요한 bool 변수
 

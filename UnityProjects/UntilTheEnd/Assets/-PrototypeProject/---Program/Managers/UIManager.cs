@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class UIManager : DontDestroySingleton<UIManager>
+public class UIManager : Singleton<UIManager>
 {
     public TMP_InputField nicknameinput;
     public GameObject panel_ESC;
