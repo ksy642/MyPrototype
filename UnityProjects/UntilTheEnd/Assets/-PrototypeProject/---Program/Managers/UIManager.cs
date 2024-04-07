@@ -55,7 +55,10 @@ public class UIManager : Singleton<UIManager>
 
     void Update()
     {
-        // 테스트용으로 U 키 눌렀을 때 다친 곳 나옴
+        // 테스트용으로 U 키 눌렀을 때 다친 곳 나옴, 여기에 추가로 주사기 이런거 혹은 엘릭서 같은거 추가해서 먹으면 완치되게 만들어야되지않을까?
+        // 5군데 지금 아픈데 그것도 심지어 랜덤으로 아픈거라 누적되는 방식이지만 같은곳 똑같이 아프게 될 수 있음
+        // 이 부분도 생각해서 해야된다 ...
+
         if (Input.GetKeyDown(KeyCode.U))
         {
             if (hurtSprites_4 != null)
