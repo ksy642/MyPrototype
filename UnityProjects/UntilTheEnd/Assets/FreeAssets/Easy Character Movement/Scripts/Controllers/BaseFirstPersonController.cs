@@ -187,11 +187,10 @@ namespace ECM.Controllers
             return transform.TransformDirection(base.CalcDesiredVelocity());
         }
 
-        /// <summary>
-        /// Overrides 'BaseCharacterController' HandleInput method,
-        /// to perform custom input code. 
-        /// </summary>
 
+
+
+        // 여기가 캐릭터 동작하는 부분임...
         protected override void HandleInput()
         {
             // Toggle pause / resume.
@@ -213,7 +212,11 @@ namespace ECM.Controllers
 
             //jump = Input.GetButton("Jump");
 
-            crouch = Input.GetKey(KeyCode.LeftControl);
+            //crouch = Input.GetKey(KeyCode.LeftControl);
+            //crouch = Input.GetButton("Fire1");
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+                isCrouching = !isCrouching;
         }
 
         #endregion

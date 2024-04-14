@@ -12,22 +12,29 @@ public class UIManager : Singleton<UIManager>
     public Sprite hurtSprites_4;
     public Color hurtColor = Color.red;
 
+    private UserSettings _userSettings;
+
+    // 장비창
+    public GameObject equipmentPanel;
+    private bool _equipmentOpen = false;
+
     public bool TogglePanelESC(bool menuESC = false) // MouseLook.cs Update 동작
     {
         if (!menuESC) // 기본값 false 즉, 여기부터 시작
         {
             panel_ESC.gameObject.SetActive(false);
+
+
+
             return true;
         }
-        else // true
+        else // menuESC = true
         {
             panel_ESC.gameObject.SetActive(true);
+
             return false;
         }
     }
-
-    private UserSettings _userSettings;
-
 
     public void OnClickNickname()
     {
@@ -59,6 +66,7 @@ public class UIManager : Singleton<UIManager>
         // 5군데 지금 아픈데 그것도 심지어 랜덤으로 아픈거라 누적되는 방식이지만 같은곳 똑같이 아프게 될 수 있음
         // 이 부분도 생각해서 해야된다 ...
 
+        // 일부로 강제로 다치게 하려고 테스트용으로 U 를 넣어둠
         if (Input.GetKeyDown(KeyCode.U))
         {
             if (hurtSprites_4 != null)
@@ -81,6 +89,21 @@ public class UIManager : Singleton<UIManager>
                     animator = selectedHurtObject.AddComponent<Animator>();
                 }
                 animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("HurtSplit_1");
+            }
+        }
+
+        // 장비창, ESC패널창이 켜져있으면 동작x
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _equipmentOpen = !_equipmentOpen;
+
+            if (!_equipmentOpen)
+            {
+                equipmentPanel.gameObject.SetActive(false);
+            }
+            else
+            {
+                equipmentPanel.gameObject.SetActive(true);
             }
         }
     }
