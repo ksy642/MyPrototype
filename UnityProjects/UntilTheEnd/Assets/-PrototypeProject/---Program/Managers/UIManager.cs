@@ -1,4 +1,5 @@
 using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,23 +17,48 @@ public class UIManager : Singleton<UIManager>
 
     // 장비창
     public GameObject equipmentPanel;
-    private bool _equipmentOpen = false;
+    public bool equipmentOpen = false;
 
-    public bool TogglePanelESC(bool menuESC = false) // MouseLook.cs Update 동작
+    public bool TogglePanelESC(bool menuESC = false, bool defaultESC = false) // MouseLook.cs Update 동작 unlockCursorKey
     {
-        if (!menuESC) // 기본값 false 즉, 여기부터 시작
+        if(!equipmentOpen && !menuESC)
         {
+            defaultESC = true;
+        }
+
+        if (!menuESC) // ESC 메뉴창이 꺼져있을 때
+        {
+            if (Input.GetKeyDown(KeyCode.E)) // E를 누르면 장비창을 켜, 근데 장비창이 켜져있으면 ESC 메뉴도 킬 수 있네? 막아야겠지?
+            {
+                equipmentOpen = !equipmentOpen;
+
+                if (!equipmentOpen)
+                {
+                    equipmentPanel.gameObject.SetActive(false);
+                }
+                else
+                {
+                    equipmentPanel.gameObject.SetActive(true);
+                }
+            }
+
             panel_ESC.gameObject.SetActive(false);
-
-
-
             return true;
         }
-        else // menuESC = true
+        else // menuESC 켜질 예정
         {
-            panel_ESC.gameObject.SetActive(true);
+            if (equipmentOpen)
+            {
+                equipmentPanel.gameObject.SetActive(false);
+                equipmentOpen = false;
+            }
+            else if (!equipmentOpen && defaultESC)
+            {
+                panel_ESC.gameObject.SetActive(true);
+                return false;
+            }
 
-            return false;
+            return true;
         }
     }
 
@@ -89,21 +115,6 @@ public class UIManager : Singleton<UIManager>
                     animator = selectedHurtObject.AddComponent<Animator>();
                 }
                 animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("HurtSplit_1");
-            }
-        }
-
-        // 장비창, ESC패널창이 켜져있으면 동작x
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _equipmentOpen = !_equipmentOpen;
-
-            if (!_equipmentOpen)
-            {
-                equipmentPanel.gameObject.SetActive(false);
-            }
-            else
-            {
-                equipmentPanel.gameObject.SetActive(true);
             }
         }
     }
