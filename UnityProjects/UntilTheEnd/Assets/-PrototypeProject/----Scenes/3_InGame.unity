@@ -4790,7 +4790,7 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   totem: {fileID: 427324537}
   skybox_Awake: {fileID: 2100000, guid: a09e79cc0cc437941ade321478b5cd46, type: 2}
-  skybox_Dream: {fileID: 2100000, guid: 54fe2f000ad8f424fb63cc3ea0ae2bb2, type: 2}
+  skybox_Dream: {fileID: 2100000, guid: ba0a11c497baa3f41bfea3d0d0c626a0, type: 2}
   timer: 10
   timeText:
   - {fileID: 6833138622517725299}
