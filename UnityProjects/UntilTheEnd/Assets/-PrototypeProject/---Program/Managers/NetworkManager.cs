@@ -14,10 +14,9 @@ public class NetworkManager : PunCallbackSingleton<NetworkManager>
         Debug.Log("네트워크 연결o");
     }
 
-    public override void OnConnectedToMaster()
+    public override void OnConnectedToMaster() // 다이렉트로 로비까지 진입
     {
         base.OnConnectedToMaster();
-
         JoinLobby();
     }
     #endregion

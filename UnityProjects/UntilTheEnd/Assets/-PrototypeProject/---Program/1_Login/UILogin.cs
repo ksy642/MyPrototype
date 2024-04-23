@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using Photon.Pun;
+
 using Unity.VisualScripting;
 
 using UnityEngine;
@@ -78,7 +80,10 @@ public class UILogin : MonoBehaviour
     // Main Game Button Multi
     public void Panel_MainGameMulti()
     {
-        // Do nothing
+        // 방만드는식으로 진행이 될 예정...허나 먼저 포톤연결해서 들어가는식으로 진행을 하도록 하자...
+        NetworkManager.instance.LoginServer(); // 다이렉트로 로비까지 진입ok
+        // 여기서 씬 넘기거나 방 같은거 만드는쪽으로 Canvas 만들어서 구성하고 거기서 Ready Go 하면 씬 넘어가게 설정가능
+
     }
 
     // Main Game Button Single
