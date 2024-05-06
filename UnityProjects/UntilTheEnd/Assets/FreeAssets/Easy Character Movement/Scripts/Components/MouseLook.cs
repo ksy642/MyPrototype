@@ -100,8 +100,8 @@ namespace ECM.Components
 
         public virtual void Init(Transform characterTransform, Transform cameraTransform)
         {
-            characterTargetRotation = characterTransform.localRotation;
-            cameraTargetRotation = cameraTransform.localRotation;
+            //characterTargetRotation = characterTransform.localRotation;
+            //cameraTargetRotation = cameraTransform.localRotation;
         }
 
         /// <summary>
@@ -120,10 +120,9 @@ namespace ECM.Components
             var pitchRotation = Quaternion.Euler(-pitch, 0.0f, 0.0f);
 
             characterTargetRotation *= yawRotation;
-            cameraTargetRotation *= pitchRotation;
+            //cameraTargetRotation *= pitchRotation;
 
-            if (clampPitch)
-                cameraTargetRotation = ClampPitch(cameraTargetRotation);
+            //if (clampPitch) cameraTargetRotation = ClampPitch(cameraTargetRotation);
 
             if (smooth)
             {
@@ -138,14 +137,25 @@ namespace ECM.Components
                 movement.rotation = Quaternion.Slerp(movement.rotation, characterTargetRotation,
                     smoothTime * Time.deltaTime);
 
-                cameraTransform.localRotation = Quaternion.Slerp(cameraTransform.localRotation, cameraTargetRotation,
-                    smoothTime * Time.deltaTime);
+                //cameraTransform.localRotation = Quaternion.Slerp(cameraTransform.localRotation, cameraTargetRotation, smoothTime * Time.deltaTime);
             }
             else
             {
-                movement.rotation *= yawRotation;
-                cameraTransform.localRotation *= pitchRotation;
+                //movement.rotation *= yawRotation;
+                //var horizontalInput = Input.GetAxis("Horizontal");// * lateralSensitivity;
+                //var rotationAmount = Quaternion.Euler(0.0f, horizontalInput, 0.0f);
+                //movement.rotation *= rotationAmount;
 
+                float rotationSpeed = 250f;
+                float horizontal = Input.GetAxis("Horizontal");
+                //Vector3 rotation = new Vector3(0f, horizontal * rotationSpeed * Time.deltaTime, 0f);
+                //transform.Rotate(rotation);
+                Quaternion rotationAmount = Quaternion.Euler(0f, horizontal * rotationSpeed * Time.deltaTime, 0f);
+                movement.rotation *= rotationAmount;
+
+
+
+                cameraTransform.localRotation *= pitchRotation;
                 if (clampPitch)
                     cameraTransform.localRotation = ClampPitch(cameraTransform.localRotation);
             }
