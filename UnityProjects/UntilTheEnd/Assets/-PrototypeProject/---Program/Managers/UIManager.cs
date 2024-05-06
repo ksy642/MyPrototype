@@ -47,12 +47,14 @@ public class UIManager : Singleton<UIManager>
         }
         else // menuESC 켜질 예정
         {
+            Debug.Log("눌렀다 현상태 : " + equipmentOpen);
+
             if (equipmentOpen)
             {
                 equipmentPanel.gameObject.SetActive(false);
                 equipmentOpen = false;
             }
-            else if (!equipmentOpen && defaultESC)
+            else if (!equipmentOpen && !defaultESC)
             {
                 panel_ESC.gameObject.SetActive(true);
                 return false;
