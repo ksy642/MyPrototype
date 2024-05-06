@@ -1,32 +1,35 @@
 using UnityEngine;
 
-public class GameManager : DontDestroySingleton<GameManager>
+namespace UntilTheEnd
 {
-    // 추가
-
-    [Header("FPS")]
-    [SerializeField] private Color color = Color.red;
-    private int size = 25;
-    private float deltaTime = 0f;
-
-    void Update()
+    public class GameManager : DontDestroySingleton<GameManager>
     {
-        deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
-    }
+        // 추가
 
-    private void OnGUI()
-    {
-        GUIStyle style = new GUIStyle();
+        [Header("FPS")]
+        [SerializeField] private Color color = Color.red;
+        private int size = 25;
+        private float deltaTime = 0f;
 
-        Rect rect = new Rect(1700, 20, Screen.width, Screen.height);
-        style.alignment = TextAnchor.UpperLeft;
-        style.fontSize = size;
-        style.normal.textColor = color;
+        void Update()
+        {
+            deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+        }
 
-        float ms = deltaTime * 1000f;
-        float fps = 1.0f / deltaTime;
-        string text = string.Format("{0:0.} FPS ({1:0.0} ms)", fps, ms);
+        private void OnGUI()
+        {
+            GUIStyle style = new GUIStyle();
 
-        GUI.Label(rect, text, style);
+            Rect rect = new Rect(1700, 20, Screen.width, Screen.height);
+            style.alignment = TextAnchor.UpperLeft;
+            style.fontSize = size;
+            style.normal.textColor = color;
+
+            float ms = deltaTime * 1000f;
+            float fps = 1.0f / deltaTime;
+            string text = string.Format("{0:0.} FPS ({1:0.0} ms)", fps, ms);
+
+            GUI.Label(rect, text, style);
+        }
     }
 }

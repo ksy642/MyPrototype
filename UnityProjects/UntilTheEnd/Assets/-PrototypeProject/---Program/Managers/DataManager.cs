@@ -1,20 +1,22 @@
 using UnityEngine;
 
-public class DataManager : DontDestroySingleton<DataManager>
+namespace UntilTheEnd
 {
-    [SerializeField] private UserSettings _userSettings;
-    [SerializeField] private GameVersionSettings _gameVersionSettings;
-
-    void Start()
+    public class DataManager : DontDestroySingleton<DataManager>
     {
-        _userSettings = ScriptableObject.CreateInstance<UserSettings>();
-        _userSettings.userNickName = string.Empty;
+        [SerializeField] private UserSettings _userSettings;
+        [SerializeField] private GameVersionSettings _gameVersionSettings;
 
-        _gameVersionSettings = ScriptableObject.CreateInstance<GameVersionSettings>();
-        _gameVersionSettings.gameVersion = "v.1.0.0";
+        void Start()
+        {
+            _userSettings = ScriptableObject.CreateInstance<UserSettings>();
+            _userSettings.userNickName = string.Empty;
+
+            _gameVersionSettings = ScriptableObject.CreateInstance<GameVersionSettings>();
+            _gameVersionSettings.gameVersion = "v.1.0.0";
+        }
     }
 }
-
 
 
 

@@ -1,17 +1,20 @@
 using Photon.Pun;
 using UnityEngine;
 
-public class Preload : MonoBehaviour
+namespace UntilTheEnd
 {
-    void Start()
+    public class Preload : MonoBehaviour
     {
-        if (PhotonNetwork.IsConnected)
+        void Start()
         {
-            NetworkManager.instance.RoomNotFull();
-        }
-        else
-        {
-            SceneManager.instance.LoadScene("1_Login");
+            if (PhotonNetwork.IsConnected)
+            {
+                NetworkManager.instance.RoomNotFull();
+            }
+            else
+            {
+                SceneManager.instance.LoadScene("1_Login");
+            }
         }
     }
 }

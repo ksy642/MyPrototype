@@ -10,8 +10,8 @@ public class Test1 : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(StringValues.Text.test1);
-        Debug.Log(StringValues.test2);
+        //Debug.Log(StringValues.Text.test1);
+        //Debug.Log(StringValues.test2);
 
     }
 

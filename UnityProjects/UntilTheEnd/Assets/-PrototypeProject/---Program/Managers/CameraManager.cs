@@ -1,45 +1,48 @@
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+namespace UntilTheEnd
 {
-    public Camera thisCamera;
-
-    private float _scrollSpeed = 10.0f;
-    private float _initialFieldOfView;
-
-    void Start()
+    public class CameraManager : MonoBehaviour
     {
-        // √ ±‚ fieldOfView ∞™¿ª ¿˙¿Â
-        _initialFieldOfView = thisCamera.fieldOfView;
-    }
+        public Camera thisCamera;
 
-    void Update()
-    {
-        float scrollWheel = -Input.GetAxis("Mouse ScrollWheel") * _scrollSpeed;
+        private float _scrollSpeed = 10.0f;
+        private float _initialFieldOfView;
 
-        // ∏∂øÏΩ∫ »Ÿ ≈¨∏Ø, √ ±‚∞™ : 60
-        if (Input.GetMouseButtonDown(2))
+        void Start()
         {
-            thisCamera.fieldOfView = _initialFieldOfView;
+            // √ ±‚ fieldOfView ∞™¿ª ¿˙¿Â
+            _initialFieldOfView = thisCamera.fieldOfView;
         }
-        else
+
+        void Update()
         {
-            // √÷¥Î ¡‹ ¿Œ : 20
-            if (thisCamera.fieldOfView <= 20.0f && scrollWheel < 0)
-            {
-                thisCamera.fieldOfView = 20.0f;
-            }
+            float scrollWheel = -Input.GetAxis("Mouse ScrollWheel") * _scrollSpeed;
 
-            // √÷¥Î ¡‹ æ∆øÙ : 100
-            else if (thisCamera.fieldOfView >= 100.0f && scrollWheel > 0)
+            // ∏∂øÏΩ∫ »Ÿ ≈¨∏Ø, √ ±‚∞™ : 60
+            if (Input.GetMouseButtonDown(2))
             {
-                thisCamera.fieldOfView = 100.0f;
+                thisCamera.fieldOfView = _initialFieldOfView;
             }
-
-            // "¡‹¿Œ ¡‹æ∆øÙ" ∞°¥…
             else
             {
-                thisCamera.fieldOfView += scrollWheel;
+                // √÷¥Î ¡‹ ¿Œ : 20
+                if (thisCamera.fieldOfView <= 20.0f && scrollWheel < 0)
+                {
+                    thisCamera.fieldOfView = 20.0f;
+                }
+
+                // √÷¥Î ¡‹ æ∆øÙ : 100
+                else if (thisCamera.fieldOfView >= 100.0f && scrollWheel > 0)
+                {
+                    thisCamera.fieldOfView = 100.0f;
+                }
+
+                // "¡‹¿Œ ¡‹æ∆øÙ" ∞°¥…
+                else
+                {
+                    thisCamera.fieldOfView += scrollWheel;
+                }
             }
         }
     }
