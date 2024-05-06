@@ -7,11 +7,23 @@ using UnityEngine;
 
 public class NetworkManager : PunCallbackSingleton<NetworkManager>
 {
+    private void Start()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
+
     #region 로그인
     public void LoginServer()
     {
-        PhotonNetwork.ConnectUsingSettings();
-        Debug.Log("네트워크 연결o");
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.Disconnect();
+        }
+        else
+        {
+            PhotonNetwork.ConnectUsingSettings();
+            Debug.Log("로그인을 진행합니다.");
+        }
     }
 
     public override void OnConnectedToMaster() // 다이렉트로 로비까지 진입
@@ -39,12 +51,18 @@ public class NetworkManager : PunCallbackSingleton<NetworkManager>
             PhotonNetwork.LoadLevel(StringValues.Scene.preload);
         }
     }
+
+    public override void OnJoinedLobby()
+    {
+        base.OnJoinedLobby();
+        Debug.Log("로비에 성공적으로 입장했습니다.");
+    }
     #endregion
 
     #region 방 생성
     public void RoomOptions(Action callback)
     {
-        if (!PhotonNetwork.InRoom)
+        if (!PhotonNetwork.InRoom && PhotonNetwork.InLobby)
         {
             Debug.Log("방을 생성합니다.");
 
@@ -76,7 +94,7 @@ public class NetworkManager : PunCallbackSingleton<NetworkManager>
     }
     #endregion
 
-    #region 룸
+    #region 방
     // 방 목록 업데이트
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
@@ -93,7 +111,7 @@ public class NetworkManager : PunCallbackSingleton<NetworkManager>
     // 방 접속
     public override void OnJoinedRoom()
     {
-        if (isRoomFull)
+        if (_isRoomFull)
         {
             Debug.Log("방 인원 초과, Lobby로 돌아갑니다.");
             PhotonNetwork.LoadLevel(StringValues.Scene.lobby); // 로비 씬으로 리다이렉트
@@ -104,22 +122,25 @@ public class NetworkManager : PunCallbackSingleton<NetworkManager>
             Debug.Log("방 참가");
         }
     }
+    #endregion
 
+    #region OnCreateRoomFailed, OnJoinRoomFailed, OnDisconnected
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-        Debug.Log("체크 :: Failed to create room. ReturnCode: " + returnCode + ", Message: " + message);
         base.OnCreateRoomFailed(returnCode, message);
+        SceneManager.instance.LoadScene(StringValues.Scene.preload);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
-        Debug.LogWarning("체크 :: Failed to join room. ReturnCode: " + returnCode + ", Message: " + message);
         base.OnJoinRoomFailed(returnCode, message);
+        PhotonNetwork.Disconnect();
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
+        SceneManager.instance.LoadScene(StringValues.Scene.preload);
 
         switch (cause)
         {
@@ -136,7 +157,6 @@ public class NetworkManager : PunCallbackSingleton<NetworkManager>
     }
     #endregion
 
-
     // 새로운 플레이어가 방에 입장할 때 호출되는 콜백
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
@@ -147,29 +167,33 @@ public class NetworkManager : PunCallbackSingleton<NetworkManager>
         }
     }
 
-    private bool isRoomFull = false;
+    private bool _isRoomFull = false;
     public void RoomFull()
     {
-        isRoomFull = true;
+        _isRoomFull = true;
         PhotonNetwork.CurrentRoom.IsOpen = false;
     }
 
     public void RoomNotFull()
     {
-        if (PhotonNetwork.InRoom)
+        if (PhotonNetwork.IsConnected)
         {
-            Debug.Log("방을 떠납니다");
-            PhotonNetwork.LeaveRoom();
+            _isRoomFull = false;
+            PhotonNetwork.CurrentRoom.IsOpen = true;
+            PhotonNetwork.Disconnect();
         }
-        if (PhotonNetwork.InLobby)
+        else
         {
-            Debug.Log("로비를 떠납니다");
-            PhotonNetwork.LeaveLobby();
+            SceneManager.instance.LoadScene(StringValues.Scene.preload);
         }
-        SceneManager.instance.LoadScene(StringValues.Scene.preload);
     }
 
-    // 닉네임
+
+
+
+
+
+    // 닉네임 추후에 넣을 예정
     private Dictionary<string, string> playerInfo = new Dictionary<string, string>();
 
     public void AddPlayerInfo(string nickname)

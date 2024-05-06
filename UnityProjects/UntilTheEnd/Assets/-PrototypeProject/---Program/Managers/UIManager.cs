@@ -19,13 +19,8 @@ public class UIManager : Singleton<UIManager>
     public GameObject equipmentPanel;
     public bool equipmentOpen = false;
 
-    public bool TogglePanelESC(bool menuESC = false, bool defaultESC = false) // MouseLook.cs Update 동작 unlockCursorKey
+    public bool TogglePanelESC(bool menuESC = false) // MouseLook.cs Update 동작 unlockCursorKey
     {
-        if(!equipmentOpen && !menuESC)
-        {
-            defaultESC = true;
-        }
-
         if (!menuESC) // ESC 메뉴창이 꺼져있을 때
         {
             if (Input.GetKeyDown(KeyCode.E)) // E를 누르면 장비창을 켜, 근데 장비창이 켜져있으면 ESC 메뉴도 킬 수 있네? 막아야겠지?
@@ -47,14 +42,12 @@ public class UIManager : Singleton<UIManager>
         }
         else // menuESC 켜질 예정
         {
-            Debug.Log("눌렀다 현상태 : " + equipmentOpen);
-
             if (equipmentOpen)
             {
                 equipmentPanel.gameObject.SetActive(false);
                 equipmentOpen = false;
             }
-            else if (!equipmentOpen && !defaultESC)
+            else
             {
                 panel_ESC.gameObject.SetActive(true);
                 return false;
