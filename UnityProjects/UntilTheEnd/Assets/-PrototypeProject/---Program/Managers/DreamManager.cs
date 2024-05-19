@@ -23,6 +23,8 @@ namespace UntilTheEnd
 
         void Start()
         {
+            AudioManager.instance.PlayBGM(AudioManager.BGMAudioType.InGameBGM);
+
             timeText[0].text = null;
         }
 
