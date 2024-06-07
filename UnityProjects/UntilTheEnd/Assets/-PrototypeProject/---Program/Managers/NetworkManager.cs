@@ -9,14 +9,11 @@ namespace UntilTheEnd
 {
     public class NetworkManager : PunCallbackSingleton<NetworkManager>
     {
-        private void Start()
-        {
-            PhotonNetwork.AutomaticallySyncScene = true;
-        }
-
         #region ·Î±×ÀÎ
         public void LoginServer()
         {
+            PhotonNetwork.AutomaticallySyncScene = true;
+
             if (PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.Disconnect();

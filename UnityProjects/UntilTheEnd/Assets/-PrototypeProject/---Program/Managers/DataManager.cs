@@ -23,7 +23,7 @@ namespace UntilTheEnd
 
 // 사용 예시
 //UserSettings settings = new UserSettings();
-//settings.userNickName = "John"; // 이 부분에서 "set" 메서드가 호출됩니다.
+//settings.userNickName = "John"; // 이 부분에서 "set" 메서드가 호출된다.
 
 /*
 1) 마지막 숫자 : v. 1.1.0
