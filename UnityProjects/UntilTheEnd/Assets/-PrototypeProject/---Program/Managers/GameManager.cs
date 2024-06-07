@@ -75,19 +75,16 @@ namespace UntilTheEnd
         private void _OnLogin()
         {
             Debug.Log("OnLogin");
-            ChangeState(GameState.Login);
         }
 
         private void _OnLobby()
         {
             Debug.Log("OnLobby");
-            ChangeState(GameState.Lobby);
         }
 
         private void _OnInGame()
         {
             Debug.Log("OnInGame");
-            ChangeState(GameState.InGame);
         }
     }
 }
