@@ -46,7 +46,8 @@ namespace UntilTheEnd
 
         public void OnClickSceneChanges()
         {
-            SceneManager.instance.LoadScene("1_Login");
+            //SceneManager.instance.LoadScene("1_Login");
+            Loading.LoadScene("1_Login");
         }
     }
 }

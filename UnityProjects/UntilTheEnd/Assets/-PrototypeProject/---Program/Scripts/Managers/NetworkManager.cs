@@ -181,10 +181,8 @@ namespace UntilTheEnd
                 PhotonNetwork.CurrentRoom.IsOpen = true;
                 PhotonNetwork.Disconnect();
             }
-            else
-            {
-                SceneManager.instance.LoadScene(StringValues.Scene.preload);
-            }
+
+            SceneManager.instance.LoadScene(StringValues.Scene.preload);
         }
 
 
