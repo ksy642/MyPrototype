@@ -6,21 +6,13 @@ namespace UntilTheEnd
 {
     public class UILogin : MonoBehaviour
     {
-        public GameObject panel_MainGame; // 매인게임
-        public GameObject[] menuButtons; // 매인게임2
-
-        // 택1
-        // Main Game
-        public void MainGame()
-        {
-            panel_MainGame.gameObject.SetActive(true);
-        }
-
-        // Main Game2
+        public GameObject[] menuButtons;
         private bool _openMenu = false;
-        public void MainGame2()
+
+        public void OnClickMainGame()
         {
             _openMenu = !_openMenu;
+
             if (_openMenu)
             {
                 foreach (var menuButtons in menuButtons)
@@ -37,37 +29,29 @@ namespace UntilTheEnd
             }
         }
 
-
         // How to Play
-        public void HowtoPlay()
+        public void OnClickHowToPlay()
         {
 
         }
 
         // Options
-        public void Options()
+        public void OnClickOptions()
         {
 
         }
 
         // Credits
-        public void Credits()
+        public void OnClickCredits()
         {
 
         }
 
         // Quit Game
-        public void QuitGame()
+        public void OnClickQuitGame()
         {
             Application.Quit();
         }
-
-        // Main Game Button Back
-        public void Panel_MainGameBack()
-        {
-            panel_MainGame.gameObject.SetActive(false);
-        }
-
 
         #region Main Game Button
         // Main Game Button Multi

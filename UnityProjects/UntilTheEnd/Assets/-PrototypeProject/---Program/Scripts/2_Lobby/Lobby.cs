@@ -10,6 +10,10 @@ namespace UntilTheEnd
         void Start()
         {
             GameManager.instance.ChangeState(GameState.Lobby);
+
+            // 테스트용
+            //Loading.LoadScene(StringValues.Scene.login);
+            Loading.LoadScene(StringValues.Scene.inGame);
         }
 
         void Update()

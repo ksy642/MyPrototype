@@ -45,13 +45,6 @@ namespace UntilTheEnd
         private void _OnPreload()
         {
             Debug.Log("OnPreload");
-            Preload preload = GameObject.FindObjectOfType<Preload>();
-
-
-
-
-
-            //SceneManager.instance.LoadScene("1_Login");
         }
 
         private void _OnLogin()

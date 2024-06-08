@@ -10,6 +10,7 @@ namespace UntilTheEnd
         void Start()
         {
             GameManager.instance.ChangeState(GameState.Login);
+            AudioManager.instance.PlayBGM(AudioManager.BGMAudioType.LoginBGM);
         }
     }
 }
