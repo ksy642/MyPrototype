@@ -9,39 +9,18 @@ namespace UntilTheEnd
         private int _size = 25;
         private float _deltaTime = 0f;
 
-        void Update()
-        {
-            _deltaTime += (Time.unscaledDeltaTime - _deltaTime) * 0.1f;
-        }
-
-        private void _OnGUI()
-        {
-            GUIStyle style = new GUIStyle();
-
-            Rect rect = new Rect(1700, 20, Screen.width, Screen.height);
-            style.alignment = TextAnchor.UpperLeft;
-            style.fontSize = _size;
-            style.normal.textColor = color;
-
-            float ms = _deltaTime * 1000f;
-            float fps = 1.0f / _deltaTime;
-            string text = string.Format("{0:0.} FPS ({1:0.0} ms)", fps, ms);
-
-            GUI.Label(rect, text, style);
-        }
-
-        [SerializeField] private GameState _gameState = GameState.None;
         public enum GameState { None, Preload, Login, Lobby, InGame }
+        [SerializeField] private GameState _gameState = GameState.None;
 
         public void ChangeState(GameState gameState)
         {
             if (_gameState == gameState)
             {
-                Debug.LogFormat("중복실행 방지 : {0}", gameState);
+                Debug.LogFormat("중복실행 방지 : " + gameState);
                 return;
             }
 
-            Debug.LogFormat("Change State : {0}", gameState);
+            Debug.LogFormat("Change State : " + gameState);
             _gameState = gameState;
 
             switch (gameState)
@@ -66,10 +45,13 @@ namespace UntilTheEnd
         private void _OnPreload()
         {
             Debug.Log("OnPreload");
-            ChangeState(GameState.Preload);
-
             Preload preload = GameObject.FindObjectOfType<Preload>();
-            SceneManager.instance.LoadScene("1_Login");
+
+
+
+
+
+            //SceneManager.instance.LoadScene("1_Login");
         }
 
         private void _OnLogin()
@@ -86,5 +68,26 @@ namespace UntilTheEnd
         {
             Debug.Log("OnInGame");
         }
+
+        //void Update()
+        //{
+        //    _deltaTime += (Time.unscaledDeltaTime - _deltaTime) * 0.1f;
+        //}
+
+        //private void _OnGUI()
+        //{
+        //    GUIStyle style = new GUIStyle();
+
+        //    Rect rect = new Rect(1700, 20, Screen.width, Screen.height);
+        //    style.alignment = TextAnchor.UpperLeft;
+        //    style.fontSize = _size;
+        //    style.normal.textColor = color;
+
+        //    float ms = _deltaTime * 1000f;
+        //    float fps = 1.0f / _deltaTime;
+        //    string text = string.Format("{0:0.} FPS ({1:0.0} ms)", fps, ms);
+
+        //    GUI.Label(rect, text, style);
+        //}
     }
 }
