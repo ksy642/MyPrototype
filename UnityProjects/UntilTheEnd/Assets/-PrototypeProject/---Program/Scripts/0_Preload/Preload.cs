@@ -21,27 +21,20 @@ namespace UntilTheEnd
             }
             else
             {
-                StartCoroutine(DelayTime_1(3.0f));
-                StartCoroutine(DelayTime_2(6.0f));
+                StartCoroutine(StaticCoroutines.DelayedAction(3.0f, () =>
+                {
+                    introPanel.SetActive(false);
+                    namePanel.SetActive(true);
+                    startPanel.SetActive(false);
+                }));
+
+                StartCoroutine(StaticCoroutines.DelayedAction(6.0f, () =>
+                {
+                    introPanel.SetActive(false);
+                    namePanel.SetActive(false);
+                    startPanel.SetActive(true);
+                }));
             }
-        }
-
-        IEnumerator DelayTime_1(float time)
-        {
-            yield return new WaitForSeconds(time);
-
-            introPanel.SetActive(false);
-            namePanel.SetActive(true);
-            startPanel.SetActive(false);
-        }
-
-        IEnumerator DelayTime_2(float time)
-        {
-            yield return new WaitForSeconds(time);
-
-            introPanel.SetActive(false);
-            namePanel.SetActive(false);
-            startPanel.SetActive(true);
         }
 
         public void OnClickSceneChanges()
