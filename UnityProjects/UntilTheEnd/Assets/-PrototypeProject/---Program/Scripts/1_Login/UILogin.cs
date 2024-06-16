@@ -66,15 +66,21 @@ namespace UntilTheEnd
         // Main Game Button Single :: 먼저 싱글부터 개발
         public void Panel_MainGameSingle()
         {
-            StartCoroutine(WaitTest());
+            StartCoroutine(StaticCoroutines.DelayedAction(2.0f, () =>
+            {
+                Loading.LoadScene(StringValues.Scene.inGame);
+            }));
         }
 
-        IEnumerator WaitTest()
-        {
-            yield return new WaitForSeconds(2.0f);
+        //    StartCoroutine(WaitTest());
+        //}
 
-            Loading.LoadScene(StringValues.Scene.inGame);
-        }
+        //IEnumerator WaitTest()
+        //{
+        //    yield return new WaitForSeconds(2.0f);
+
+        //    Loading.LoadScene(StringValues.Scene.inGame);
+        //}
         #endregion
     }
 }
