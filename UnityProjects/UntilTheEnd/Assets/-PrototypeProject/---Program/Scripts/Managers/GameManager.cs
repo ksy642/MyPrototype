@@ -4,7 +4,7 @@ namespace UntilTheEnd
 {
     public class GameManager : DontDestroySingleton<GameManager>
     {
-        public enum GameState { None, Preload, Login, Lobby, InGame }
+        public enum GameState { None, Preload, Avatar, Login, Lobby, InGame }
         [SerializeField] private GameState _gameState = GameState.None;
 
         public void ChangeState(GameState gameState)
@@ -23,6 +23,9 @@ namespace UntilTheEnd
                 case GameState.Preload:
                     _OnPreload();
                     break;
+                case GameState.Avatar:
+                    _OnAvatar();
+                    break;
                 case GameState.Login:
                     _OnLogin();
                     break;
@@ -40,6 +43,11 @@ namespace UntilTheEnd
         private void _OnPreload()
         {
             Debug.Log("OnPreload");
+        }
+
+        private void _OnAvatar()
+        {
+            Debug.Log("OnAvatar");
         }
 
         private void _OnLogin()
