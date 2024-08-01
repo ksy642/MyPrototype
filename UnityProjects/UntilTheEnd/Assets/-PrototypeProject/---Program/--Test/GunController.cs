@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    public GameObject bulletPrefab; // ÃÑ¾Ë ÇÁ¸®ÆÕ
-    public Transform firePosition;   // ÃÑ¾ËÀÌ ¹ß»çµÉ À§Ä¡
-    public float bulletSpeed = 24f; // ÃÑ¾ËÀÇ ¼Óµµ
+    public GameObject bulletPrefab; // ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public Transform firePosition;   // ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public float bulletSpeed = 24f; // ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 
     void Update()
     {
-        // Fire1 ¹öÆ°ÀÌ ´­·ÈÀ» ¶§ ¹ß»ç
+        // Fire1 ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß»ï¿½
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
@@ -19,12 +19,12 @@ public class GunController : MonoBehaviour
     {
         GameObject bullets = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation);
 
-        // ÃÑ¾Ë¿¡ Rigidbody ÄÄÆ÷³ÍÆ®°¡ ÀÖ´Ù¸é ÈûÀ» °¡ÇÔ
+        // ï¿½Ñ¾Ë¿ï¿½ Rigidbody ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Rigidbody bulletRigidbody = bullets.GetComponent<Rigidbody>();
 
         if (bulletRigidbody != null)
         {
-            bulletRigidbody.velocity = firePosition.forward * bulletSpeed;
+            bulletRigidbody.linearVelocity = firePosition.forward * bulletSpeed;
         }
     }
 }
