@@ -13,7 +13,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             {
                 if (_instance == null)
                 {
-                    _instance = GameObject.FindObjectOfType<T>();
+                    //_instance = GameObject.FindObjectOfType<T>();
+                    _instance = GameObject.FindFirstObjectByType<T>();
 
                     if (_instance == null)
                     {

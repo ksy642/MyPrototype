@@ -22,8 +22,8 @@ namespace Photon.Chat.Demo
 
         public void Start()
         {
-            this.chatNewComponent = FindObjectOfType<ChatGui>();
-
+            //this.chatNewComponent = FindObjectOfType<ChatGui>();
+            this.chatNewComponent = FindFirstObjectByType<ChatGui>();
 
             string prefsName = PlayerPrefs.GetString(UserNamePlayerPref);
             if (!string.IsNullOrEmpty(prefsName))
@@ -44,7 +44,8 @@ namespace Photon.Chat.Demo
 
         public void StartChat()
         {
-            ChatGui chatNewComponent = FindObjectOfType<ChatGui>();
+            //ChatGui chatNewComponent = FindObjectOfType<ChatGui>();
+            ChatGui chatNewComponent = FindFirstObjectByType<ChatGui>();
             chatNewComponent.UserName = this.idInput.text.Trim();
             chatNewComponent.Connect();
             this.enabled = false;

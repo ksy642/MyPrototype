@@ -12,7 +12,8 @@ public class PunCallbackSingleton<T> : MonoBehaviourPunCallbacks where T : MonoB
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<T>();
+                //_instance = FindObjectOfType<T>();
+                _instance = FindFirstObjectByType<T>();
                 if (_instance == null)
                 {
                     GameObject singletonObject = new GameObject();
