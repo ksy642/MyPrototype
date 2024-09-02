@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cecaca32ced13a64fa6642af3a59f59f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109681
+  packageName: Subway Metro Station
+  packageVersion: 1.0
+  assetPath: Assets/Subway Metro/Materials/Sky.mat
+  uploadId: 673208

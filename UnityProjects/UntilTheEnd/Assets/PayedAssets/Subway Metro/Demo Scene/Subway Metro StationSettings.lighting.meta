@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cf822a19b22b2b34dbb69066246de83e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 4890085278179872738
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109681
+  packageName: Subway Metro Station
+  packageVersion: 1.0
+  assetPath: Assets/Subway Metro/Demo Scene/Subway Metro StationSettings.lighting
+  uploadId: 673208

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1fbe4db938db11c46ad6aa85543e7962
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109681
+  packageName: Subway Metro Station
+  packageVersion: 1.0
+  assetPath: Assets/Subway Metro/Materials/Metro_Base_color.mat
+  uploadId: 673208

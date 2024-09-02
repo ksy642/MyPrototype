@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fac5fae84ea085f46bc618c0e85a1d62
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109681
+  packageName: Subway Metro Station
+  packageVersion: 1.0
+  assetPath: Assets/Subway Metro/Post-processing Profile.asset
+  uploadId: 673208

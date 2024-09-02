@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e339f628763457640b82d59df4dbe7eb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109681
+  packageName: Subway Metro Station
+  packageVersion: 1.0
+  assetPath: Assets/Subway Metro/Demo Scene/Subway Metro Station/LightingData.asset
+  uploadId: 673208

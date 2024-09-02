@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c5e7313330885874b876f962b460eb60
+timeCreated: 1516428245
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109681
+  packageName: Subway Metro Station
+  packageVersion: 1.0
+  assetPath: Assets/Subway Metro/Materials/MetroWall.mat
+  uploadId: 673208
