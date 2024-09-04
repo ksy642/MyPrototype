@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace UntilTheEnd
 {
-    public class Loading : MonoBehaviour
+    public class LoadingSceneScript : MonoBehaviour
     {
         public static string nextScene;
 

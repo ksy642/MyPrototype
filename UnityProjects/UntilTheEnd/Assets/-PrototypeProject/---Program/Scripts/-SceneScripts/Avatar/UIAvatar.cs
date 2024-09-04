@@ -95,7 +95,7 @@ namespace UntilTheEnd
 
 
             // 해당 정보 저장하고 씬 넘어가게 설정하는곳
-            Loading.LoadScene(StringValues.Scene.login);
+            LoadingSceneScript.LoadScene(StringValues.Scene.login);
         }
         #endregion
     }

@@ -5,7 +5,7 @@ using static UntilTheEnd.GameManager;
 
 namespace UntilTheEnd
 {
-    public class Preload : MonoBehaviour
+    public class PreloadSceneScript : MonoBehaviour
     {
         public GameObject introPanel;
         public GameObject namePanel;
@@ -39,7 +39,7 @@ namespace UntilTheEnd
 
         public void OnClickSceneChanges()
         {
-            Loading.LoadScene(StringValues.Scene.login);
+            LoadingSceneScript.LoadScene(StringValues.Scene.login);
         }
     }
 }

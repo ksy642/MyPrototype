@@ -5,7 +5,7 @@ using static UntilTheEnd.GameManager;
 
 namespace UntilTheEnd
 {
-    public class Login : MonoBehaviour
+    public class LoginSceneScript : MonoBehaviour
     {
         void Start()
         {

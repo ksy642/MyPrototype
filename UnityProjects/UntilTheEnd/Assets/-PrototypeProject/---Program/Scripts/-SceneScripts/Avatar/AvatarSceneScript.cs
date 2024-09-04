@@ -3,7 +3,7 @@ using static UntilTheEnd.GameManager;
 
 namespace UntilTheEnd
 {
-    public class Avatar : MonoBehaviour
+    public class AvatarSceneScript : MonoBehaviour
     {
         public UIAvatar uIAvatar;
         public GameObject player1;

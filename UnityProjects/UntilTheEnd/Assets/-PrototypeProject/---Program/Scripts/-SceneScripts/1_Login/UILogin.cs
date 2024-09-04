@@ -68,7 +68,7 @@ namespace UntilTheEnd
         {
             StartCoroutine(StaticCoroutines.DelayedAction(2.0f, () =>
             {
-                Loading.LoadScene(StringValues.Scene.inGame);
+                LoadingSceneScript.LoadScene(StringValues.Scene.inGame);
             }));
         }
 
