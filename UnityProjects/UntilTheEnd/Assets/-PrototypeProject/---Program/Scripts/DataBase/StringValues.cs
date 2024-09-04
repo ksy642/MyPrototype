@@ -11,5 +11,8 @@ public static class StringValues
         public const string lobby = "2_Lobby";
         public const string inGame = "3_InGame";
         public const string loading = "Loading";
+        public const string blackLoading = "BlackLoading";
+
+        public const string subway = "Subway";
     }
 }

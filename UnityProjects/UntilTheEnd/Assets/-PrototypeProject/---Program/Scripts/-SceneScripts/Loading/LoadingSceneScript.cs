@@ -12,7 +12,15 @@ namespace UntilTheEnd
 
         void Start()
         {
-            StartCoroutine(_LoadScene());
+            if (SceneManager.instance.GetActiveScene().name == StringValues.Scene.loading)
+            {
+                StartCoroutine(_LoadScene());
+            }
+            else if (SceneManager.instance.GetActiveScene().name == StringValues.Scene.blackLoading)
+            {
+                StartCoroutine(_BlackLoadScene());
+            }
+
         }
 
         public static void LoadScene(string sceneName)
@@ -64,6 +72,12 @@ namespace UntilTheEnd
                     yield break;
                 }
             }
+        }
+
+
+        private IEnumerator _BlackLoadScene() // 추가로 더 작성해야함!!!
+        {
+            yield return null;
         }
     }
 }
